@@ -76,7 +76,8 @@ a.btn{
     width: 100dvw;
 }
 #top{
-    height: calc(100dvh - 250px);
+    height: fit-content;
+    padding: 80px 0 20px 0;
     max-width: 100dvw;
     overflow: hidden;
     display: flex;
