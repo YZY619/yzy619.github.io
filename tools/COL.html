@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html style="display: none;">
+    <head>
+        <meta charset="utf-8">
+        <title>JerryYuan19</title>
+    </head>
+    <body>
+        <nav>
+            <span class="item main"><a class="btn" href="/#noanim">JerryYuan19's Blog</a></span>
+            <span class="item"><a class="btn" href="/description.html#noanim">Description</a></span>
+            <span class="item"><a class="btn" href="/tools/#noanim">Tools</a></span>
+        </nav>
+        <div id="app">
+            <div id="top">
+                <div id="innerTop">
+                    JerryYuan19
+                    <div id="imgFrame">
+                        <img src="/src/img/icon.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="article" style="--lines:3.3" essential>
+                <script>
+                    function upd(){
+                        let R=(document.getElementById("R").value);
+                        let G=(document.getElementById("G").value);
+                        let B=(document.getElementById("B").value);
+                        document.getElementById("r").innerText=R;
+                        document.getElementById("g").innerText=G;
+                        document.getElementById("b").innerText=B;
+                        document.getElementById("ans").style.setProperty("background-color","rgb("+R+","+G+","+B+")");
+                        if(parseInt(R)+parseInt(G)+parseInt(B)>=384)document.getElementById("ans").style.setProperty("color","#000");else document.getElementById("ans").style.setProperty("color","#fff");
+                        document.getElementById("ans").innerText="#"+parseInt(R).toString(16).padStart(2, '0')+parseInt(G).toString(16).padStart(2, '0')+parseInt(B).toString(16).padStart(2, '0');
+                    }
+                </script>
+                R:<input id="R" type="range" min="0" max="255" value="0" onchange="upd();" onmousemove="upd();" style="width: 80%;position:relative;top:2.5px;">&nbsp;<span id="r">0</span><br>
+                G:<input id="G" type="range" min="0" max="255" value="0" onchange="upd();" onmousemove="upd();" style="width: 80%;position:relative;top:2.5px;">&nbsp;<span id="g">0</span><br>
+                B:<input id="B" type="range" min="0" max="255" value="0" onchange="upd();" onmousemove="upd();" style="width: 80%;position:relative;top:2.5px;">&nbsp;<span id="b">0</span><br><br>
+                <div id="ans" style="height: 2em;width: 8em;color:#fff;background-color: #000;user-select: text;align-content: center;text-align: center;display: block;">#000000</div>
+            </div>
+        </div>
+    </body>
+</html>
+<script src="/index.js"></script>
+<link rel="stylesheet" href="/index.css">
