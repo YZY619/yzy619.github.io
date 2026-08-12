@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html style="display: none;">
+    <head>
+        <meta charset="utf-8">
+        <title>JerryYuan19</title>
+        <script>
+            function onInit(){
+                const url = window.location.href;
+                const params = new URLSearchParams(url.slice(url.indexOf("?")));
+                offsetstr = params.get("preset");
+                if(offsetstr !== null && offsetstr !== undefined){
+                    if(offsetstr.length==15 && parseInt("0x"+offsetstr,16)){
+                        document.getElementById("Offset0").value = offsetstr.slice(0,5),
+                        document.getElementById("OffsetA").value = offsetstr.slice(5,10),
+                        document.getElementById("Offseta").value = offsetstr.slice(10,15)
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <nav>
+            <span class="item main"><a class="btn" href="/#noanim">JerryYuan19's Blog</a></span>
+            <span class="item"><a class="btn" href="/description.html#noanim">Description</a></span>
+            <span class="item"><a class="btn" href="/posts/#noanim">Posts</a></span>
+            <span class="item"><a class="btn" href="/tools/#noanim">Tools</a></span>
+        </nav>
+        <div id="app">
+            <div id="top">
+                <div id="innerTop">
+                    JerryYuan19
+                    <div id="imgFrame">
+                        <img src="/src/img/icon.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="article" style="--lines:6" essential>
+                Offset for Character '0':<input id="Offset0" type="text" value="30" maxlength="5"><br>
+                Offset for Character 'A':<input id="OffsetA" type="text" value="41" maxlength="5"><br>
+                Offset for Character 'a':<input id="Offseta" type="text" value="61" maxlength="5"><br>
+                [please use hex for above]<br>
+                Share Offsets as a Preset: <br><span id="preset" style="user-select: all;"></span><br><br>
+                INPUT&nbsp;: <input id="inputChar" type="text" value="" onfocus="startUpd();" onblur="stopUpd();"><br>
+                OUTPUT: <span id="outputChar" style="user-select: all;"></span>
+                <script>
+                    function transChr(chr){
+                        let offsets = [
+                            parseInt("0x"+document.getElementById("Offset0").value,16),
+                            parseInt("0x"+document.getElementById("OffsetA").value,16),
+                            parseInt("0x"+document.getElementById("Offseta").value,16)
+                        ]
+                        if('0'<=chr&&chr<='9'){
+                            chr+=offsets[0];
+                        }else if('A'<=chr&&chr<='Z'){
+                            chr+=offsets[1];
+                        }else if('a'<=chr&&chr<='z'){
+                            chr+=offsets[2];
+                        }
+                        return chr;
+                    }
+                    function t(){
+                        let inp = document.getElementById("inputChar").value;
+                        let ans = "";
+                        for(let i = 0;i<inp.length;i++){
+                            ans+=String.fromCharCode(transChr(inp.charCodeAt(i)))
+                        }
+                        if(document.getElementById("outputChar").innerHTML != ans)document.getElementById("outputChar").innerHTML = ans;
+                        if(window.upd === 1){
+                            requestAnimationFrame(t);
+                        }
+                        showPresetUrl();
+                    }
+                    function startUpd(){
+                        window.upd = 1;
+                        t();
+                    }
+                    function stopUpd(){
+                        window.upd = 0;
+                    }
+                    onInit();
+                    function showPresetUrl(){
+                        let offsets = document.getElementById("Offset0").value.toString().padStart(5,'0')+document.getElementById("OffsetA").value.toString().padStart(5,'0')+document.getElementById("Offseta").value.toString().padStart(5,'0');
+                        const origin = location.origin || (location.protocol + '//' + location.host);
+                        document.getElementById("preset").innerHTML=("预设分享网址：",origin+location.pathname+"?preset="+offsets)
+                    }
+                    showPresetUrl();
+                </script>
+            </div>
+        </div>
+    </body>
+</html>
+<script src="/index.js"></script>
+<link rel="stylesheet" href="/index.css">
