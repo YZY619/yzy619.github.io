@@ -49,12 +49,12 @@
                             parseInt("0x"+document.getElementById("OffsetA").value,16),
                             parseInt("0x"+document.getElementById("Offseta").value,16)
                         ]
-                        if('0'<=chr&&chr<='9'){
-                            chr+=offsets[0];
-                        }else if('A'<=chr&&chr<='Z'){
-                            chr+=offsets[1];
-                        }else if('a'<=chr&&chr<='z'){
-                            chr+=offsets[2];
+                        if(48<=chr&&chr<=57){
+                            chr+=offsets[0]-48;
+                        }else if(65<=chr&&chr<=90){
+                            chr+=offsets[1]-65;
+                        }else if(97<=chr&&chr<=122){
+                            chr+=offsets[2]-97;
                         }
                         return chr;
                     }
@@ -62,7 +62,7 @@
                         let inp = document.getElementById("inputChar").value;
                         let ans = "";
                         for(let i = 0;i<inp.length;i++){
-                            ans+=String.fromCharCode(transChr(inp.charCodeAt(i)))
+                            ans+=String.fromCodePoint(transChr(parseInt(inp.charCodeAt(i))));
                         }
                         if(document.getElementById("outputChar").innerHTML != ans)document.getElementById("outputChar").innerHTML = ans;
                         if(window.upd === 1){
