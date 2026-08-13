@@ -28,6 +28,8 @@
     padding-right: 20px;
     border-right: 2px #888 solid;
     margin-right: 20px;
+    min-width: 20%;
+    overflow-x: hidden;
 }
 .articlePreview{
     flex:1 0 0;
@@ -61,4 +63,64 @@
     font-weight: 400;
     color:#888;
     text-shadow: 3px 3px #00000011;
+}
+
+.cover{
+    position: absolute;
+    height: 100dvh;
+    width: 100dvw;
+    top:0;
+    left: 0;
+    background-color: #00000022;
+    z-index: 20;
+    backdrop-filter: blur(3px);
+}
+#forArticle{
+    position: absolute;
+    top:0;
+    left: 0;
+    height: 100dvh;
+    width: 100dvw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+.articleDetail{
+    position: absolute;
+    width: 70dvw;
+    height: 80dvh;
+    background-color: #f8f8f8;
+    z-index: 25;
+    overflow-y: auto;
+    font-family: 'Segoe UI';
+    padding: 0 5dvw;
+    box-shadow: 15px 15px 3px 2px #00000033;
+}
+.center{
+    text-align: center;
+    color: #888;
+}
+.time{
+    color: #448;
+    text-align: center;
+}
+.auth{
+    color: #484;
+    text-align: center;
+}
+.infos{
+    display: grid;
+    grid-auto-flow: column;
+    gap: 10px;
+    width: 90%;
+    background-color: #ccc;
+    padding: 0 5%;
+}
+h2{
+    margin-block-start: 0.3em;
+    margin-block-end: 0.3em;
+}
+.black{
+    color: #000;
 }
