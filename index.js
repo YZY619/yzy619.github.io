@@ -1,4 +1,4 @@
-if(location.href.endsWith("#noanim")){
+if(location.href.includes("#noanim")){
     document.querySelectorAll('*').forEach(element=>{
         element.setAttribute("draggable","false");
         if(!element.hasAttribute("essential")){
