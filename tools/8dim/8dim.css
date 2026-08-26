@@ -1,0 +1,117 @@
+.question{
+    width: 95%;
+    padding: 1% 2.5%;
+    border-bottom: 2px solid #dddddd;
+    text-align: center;
+}
+.options{
+    width: 98%;
+    padding: 1%;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    justify-items: center;
+}
+.C{
+    border-radius: 50%;
+    display: inline-block;
+    border: var(--col) solid 2px;
+    width: 1em;
+    height: 1em;
+    color: #ffffff;
+    font-weight: 900;
+}
+.C1{--col: #dd0000;}
+.C2{--col: #dd8800;}
+.C3{--col: #dddd00;}
+.C4{--col: #88dd00;}
+.C5{--col: #00dd00;}
+.CC{
+    border-radius: 50%;
+    background-color: var(--col);
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+}
+.cont{
+    width: fit-content;
+}
+.article{
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+#submit{
+    width: 20em;
+}
+#ver{
+    user-select: all;
+}
+#tme{
+    user-select: all;
+}
+#result{
+    user-select: all;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50ch, calc(50% - 1px)));
+    gap:2px;
+}
+.bar{
+    display: inline-block;
+    flex-grow: 1;
+    height: 10px;
+    border: 2px solid var(--colBd);
+    border-radius: 4px;
+    background: linear-gradient(90deg, #666666 30%,var(--colFg) 70%);
+    margin: 5px;
+}
+.cursor{
+    width: 10px;
+    height: 20px;
+    margin: -6px;
+    background-color: transparent;
+    backdrop-filter: blur(22px) saturate(160%) brightness(1.1);
+    border: 2px solid #cccccc;
+    border-radius: 2px;
+    position: relative;
+    left: calc(var(--val)*49% + 50%);
+}
+.func{
+    display: flex;
+    width: calc(100% - 6px);
+    border-top: #dddddd solid 2px;
+    padding: 3px;
+}
+.functionalBtn{
+    display: block;
+    width: calc(100% - 8px);
+    border: #1e90ff 4px;
+    border-style: outset;
+    align-self: center;
+    justify-self: center;
+    background-color: #1e90ff;
+    color: #ffffff;
+    padding: 0.3em;
+    font-weight: 900;
+}
+.functionalCont{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap:5px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+button:hover{
+    filter: brightness(0.95);
+    border-style: solid;
+}
+#differ{
+    width: calc(93% - 4px);
+    margin: 0 2.5%;
+    padding: 1%;
+    flex-direction: column;
+    background-color: #8dc5fd22;
+    border: #1e90ff 2px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

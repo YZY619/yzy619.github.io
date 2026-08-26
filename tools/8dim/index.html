@@ -3,6 +3,15 @@
     <head>
         <meta charset="utf-8">
         <title>JerryYuan19</title>
+        <script src="/index.js" defer></script>
+        <script defer>
+            document.querySelectorAll('*').forEach(element=>{
+                element.setAttribute("draggable","false");
+                element.style.setProperty("animation-duration","0ms","important");
+                element.style.setProperty("animation-delay","0ms","important");
+            })
+        </script>
+        <link rel="stylesheet" href="/index.css">
     </head>
     <body>
         <nav>
@@ -22,17 +31,10 @@
                 </div>
             </div>
             <div class="article">
-                <strong>RANDOM NUMBER GENERATOR</strong><br><br>
-                Min Value: <input id="min" min="-9223372036854775807" max="9223372036854775807" value="0"><br>
-                Max Value: <input id="max" min="-9223372036854775807" max="9223372036854775807" value="65536"><br>
-                <button onclick="document.getElementById('answer').innerText=Math.floor(Math.random()*(parseInt(document.getElementById('max').value)-parseInt(document.getElementById('min').value)+1)+document.getElementById('min').value).toString()">
-                Generate
-                </button>
-                <br>
-                Generated: [<span id="answer" style="user-select: text;"></span>]
-            </div>
+            </script><strong>8-DIMENSIONAL PERSONALITY TEST</strong><br><br>
+            <a href="8dim-zh-cn.html#noanim"> &NestedGreaterGreater; 简体中文 (Simplified Chinese) &NestedLessLess; </a><br>
+            <a href="8dim-en.html#noanim"> &NestedGreaterGreater; English (英文) &NestedLessLess; </a><br>
+            <a href="result.html#noanim"> View Recent/Saved Result </a>
         </div>
     </body>
 </html>
-<script src="/index.js"></script>
-<link rel="stylesheet" href="/index.css">

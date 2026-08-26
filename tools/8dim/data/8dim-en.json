@@ -1,0 +1,161 @@
+{
+    "version": "260825e",
+    "language": "en",
+    "options": ["No way", "Nope", "I'm not sure", "Yes", "Of course"],
+    "submit": "Submit",
+    "unfinished": "UNFINISHED! Please check if you've skipped any of the questions.",
+    "questions": [
+        {
+            "section": "Ti",
+            "positives": [
+                "I am willing to spend a lot of time analyzing problems",
+                "Whether or not I end up pointing out the flaws, I can always identify logical inconsistencies in what others say.",
+                "I am never satisfied with appearances until I understand the fundamental principles behind things.",
+                "When I encounter something that defies intuition, I wonder why my intuition is wrong / how this thing manages to contradict my intuition",
+                "I instinctively enjoy the feeling of deconstructing everything in the world with my mind.",
+                "I enjoy delving deeply into things, and even if the final result isn't very satisfactory, I still feel happy.",
+                "When facing a contradictory matter, I will strive to clarify its logic",
+                "I would really want to know the reasons when my logical structure is questioned.",
+                "I will instinctively want to learn more when my own logical theories are insufficient to explain something.",
+                "I will try to understand/interpret my own behavior/thoughts with my mind."
+            ],
+            "negatives": [
+                "Any tool that works is a good tool; how it works doesn't matter to me.",
+                "When facing a viewpoint I don't understand, I usually directly choose to accept or reject it, rarely analyzing why it might be valid or not."
+            ]
+        },
+        {
+            "section": "Fi",
+            "positives": [
+                "When appreciating artistic works, instead of analyzing the content and structure, I am often moved by emotions and start to think about similar feelings within myself.",
+                "I have my own set of values/moral principles inside me, regardless of whether they are different or not.",
+                "I will still feel dissatisfied when others' actions violate my own moral standards, even if they seem reasonable.",
+                "I will keenly perceive that some people's emotions are inauthentic and not genuine.",
+                "Many inner feelings I don't want to tell anyone in detail, and I also find it hard to explain clearly.",
+                "Pretending makes me very uncomfortable, and I know that's not my true intention.",
+                "Sometimes I enjoy being immersed in emotions, whether positive or negative.",
+                "When others talk about their own experiences, I try to find similar emotional experiences within myself.",
+                "I am sensitive to insincere words and often reflect on whether what I say comes from the heart, even if it is what the situation or logical theory required at the time.",
+                "Others' opinions have little connection to my values, and I will resolutely stick to my beliefs even if they are different from others' values."
+            ],
+            "negatives": [
+                "I feel my values are a burden and should make way for logic, practicality, or experience.",
+                "I think being in an emotional state is a waste of time and energy, and being in an emotional state is not the right choice."
+            ]
+        },
+        {
+            "section": "Ne",
+            "positives": [
+                "When others say something, my mind often automatically comes up with several completely unrelated associations.",
+                "I prefer to continuously introduce new angles and directions rather than delve deeply into a single topic.",
+                "When I listen to others speak, I often suddenly think of a distant connection, and the entire conversation then follows that line of thought.",
+                "My friends often say my thoughts jump too quickly, and sometimes they can't keep up with my line of thinking.",
+                "Faced with an already good proposal, my first reaction is still \"But there's another possibility...\"",
+                "Before making a decision, I like to list out all possible options, even if some seem very unrealistic",
+                "Others say \"Just pick this one,\" but I often can't help thinking \"Wait, let's think of another direction.\"",
+                "Whenever I see a concept in field A, I often wonder, \"Can this be applied to a completely different field B?\"",
+                "When I speak, I often jump from one topic to another that seems completely unrelated, and others think I'm \"going crazy\" or talking nonsense, but I myself know there is a connection between those ideas.",
+                "I connect completely unrelated hobbies and discover their underlying commonalities."
+            ],
+            "negatives": [
+                "I'm not very good at connecting things from different fields; each field is relatively independent to me.",
+                "When facing choices, I tend to quickly settle on a solution and no longer dwell on other possibilities."
+            ]
+        },
+        {
+            "section": "Te",
+            "positives": [
+                "I prioritize the final outcome and efficiency when doing things, and the rationality of the process is secondary.",
+                "When facing problems, I'm used to directly seeking practical and effective solutions.",
+                "I tend to establish clear rules and processes to ensure things run smoothly.",
+                "I place more emphasis on whether a view can be verified in reality rather than whether it is logically consistent.",
+                "I like to coordinate resources and drive the implementation of plans.",
+                "When facing multiple ideas, I actively screen them and prioritize the most feasible one.",
+                "Objective external facts and data have a significant impact on my judgment.",
+                "I don't want to spend a lot of time talking about theory unless it can be applied immediately.",
+                "I am accustomed to using external standards to measure success and failure, and the results are the most straightforward basis.",
+                "I enjoy organizing tasks and coordinating team members to advance goals."
+            ],
+            "negatives": [
+                "I often immerse myself in continuous thinking about theories, not caring much whether the ideas can truly be implemented.",
+                "I enjoy the process of deliberation itself when discussing with others, even if no conclusion is reached in the end."
+            ]
+        },
+        {
+            "section": "Fe",
+            "positives": [
+                "I can keenly perceive the overall atmosphere and emotional changes of the people around me.",
+                "When interacting with people, I subconsciously adjust my words and actions to maintain harmony in the relationship.",
+                "Others' feelings and the needs of the group are given significant consideration when making choices.",
+                "I care a lot about whether I am accepted and recognized by the group I am part of.",
+                "When others confide their emotions to me, I instinctively want to comfort and empathize with them.",
+                "I easily get influenced by the emotions of people around me and find it hard to remain detached.",
+                "When conflicts arise, I would rather first ease the relationship than argue about who is right or wrong.",
+                "I am good at picking up on subtle, unspoken social cues between people.",
+                "I am willing to make appropriate compromises on my own ideas in exchange for a harmonious interpersonal atmosphere.",
+                "I will actively think about how to do things in a way that considers the feelings of most people."
+            ],
+            "negatives": [
+                "In social interactions, I rarely consider others' emotions and prefer to express my genuine thoughts directly.",
+                "I rarely refer to popular values, and usually follow my inner judgment entirely."
+            ]
+        },
+        {
+            "section": "Ni",
+            "positives": [
+                "I often have a vague sense of the long-term direction of things.",
+                "I'm not too concerned with scattered details, but rather focused on finding the underlying universal laws of things",
+                "Many of my ideas emerge suddenly as a whole, rather than being derived step by step.",
+                "I am accustomed to going beyond the surface phenomena to grasp the underlying essence.",
+                "I find it easier to focus on a core development line rather than multiple parallel possibilities.",
+                "I often have intuitions and insights that I can't immediately explain their origins.",
+                "I don't like to drift aimlessly; I hope to integrate all the information into a complete picture.",
+                "I tend to think about the long term and focus less on short-term minor changes.",
+                "I can see the deep, hidden connections between different events",
+                "I tend to understand various phenomena in the world through a set of core concepts."
+            ],
+            "negatives": [
+                "I am better at expanding laterally into countless possibilities and not so good at focusing on a single main line.",
+                "I tend to get lost in the face of a large amount of fragmented information and find it difficult to distill them into a unified core."
+            ]
+        },
+        {
+            "section": "Si",
+            "positives": [
+                "Experience gained from past personal experiences is my key basis for making judgments.",
+                "I prefer stable and familiar environments, and significant changes make me feel uneasy.",
+                "I can clearly remember a large number of specific details from past events",
+                "Methods that have been repeatedly verified will be prioritized for continued use, and I will not change them easily.",
+                "I value tradition, as well as the habits and memories accumulated in the past.",
+                "When recalling the past, I can relive the feelings and scenes of that time.",
+                "When facing new things, I instinctively compare them with past similar experiences to understand.",
+                "I prefer having a fixed routine and am not used to frequent changes in pace.",
+                "Past successes and failures continuously influence my current choices.",
+                "I value the experience accumulated over time, believing it has high reference value."
+            ],
+            "negatives": [
+                "I rarely look back at the past, preferring to focus on new things, feeling that old experiences have very little reference value.",
+                "I prefer to constantly try new, untouched methods rather than rely on old experiences."
+            ]
+        },
+        {
+            "section": "Se",
+            "positives": [
+                "I can fully immerse myself in the present moment, focusing on sensing the current reality around me.",
+                "I am highly sensitive to sensory information such as sounds, visuals, and textures from the external world.",
+                "I tend to react immediately when facing situations and am not used to long-term rehearsal and planning.",
+                "I enjoy being present, rarely getting lost in memories or daydreaming about the future.",
+                "I enjoy experiencing new things and savoring immediate, direct sensory stimulation.",
+                "I can quickly adapt to the current situation and respond flexibly in the face of unexpected circumstances.",
+                "I don't like excessive planning and prefer to adapt to the situation as it unfolds.",
+                "I am easily attracted by vivid and concrete information in front of me",
+                "I enjoy living in the present and rarely dwell on those distant and long-term abstract propositions.",
+                "I am good at noticing specific changes happening in the environment."
+            ],
+            "negatives": [
+                "I prefer to think about abstract theories; the current real-world environment finds it hard to capture my attention",
+                "I often get immersed in abstract thinking and find it hard to focus on the present real environment."
+            ]
+        }
+    ]
+}

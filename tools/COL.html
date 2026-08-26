@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html style="display: none;">
+<html style="display: none;" lang="en-US">
     <head>
         <meta charset="utf-8">
         <title>JerryYuan19</title>
@@ -21,7 +21,7 @@
                     </div>
                 </div>
             </div>
-            <div class="article" style="--lines:3.3" essential>
+            <div class="article">
                 <script>
                     function upd(){
                         let R=(document.getElementById("R").value);
@@ -34,7 +34,7 @@
                         if(parseInt(R)+parseInt(G)+parseInt(B)>=384)document.getElementById("ans").style.setProperty("color","#000");else document.getElementById("ans").style.setProperty("color","#fff");
                         document.getElementById("ans").innerText="#"+parseInt(R).toString(16).padStart(2, '0')+parseInt(G).toString(16).padStart(2, '0')+parseInt(B).toString(16).padStart(2, '0');
                     }
-                </script>
+                </script><strong>COLOR PICKER</strong><br><br>
                 R:<input id="R" type="range" min="0" max="255" value="0" onchange="upd();" onmousemove="upd();" style="width: 80%;position:relative;top:2.5px;">&nbsp;<span id="r">0</span><br>
                 G:<input id="G" type="range" min="0" max="255" value="0" onchange="upd();" onmousemove="upd();" style="width: 80%;position:relative;top:2.5px;">&nbsp;<span id="g">0</span><br>
                 B:<input id="B" type="range" min="0" max="255" value="0" onchange="upd();" onmousemove="upd();" style="width: 80%;position:relative;top:2.5px;">&nbsp;<span id="b">0</span><br><br>

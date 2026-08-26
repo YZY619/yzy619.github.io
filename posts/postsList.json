@@ -11,6 +11,12 @@
         "author" : "JerryYuan19",
         "time" : "2026/8/13 18:00 (UTC+8)",
         "title" : "Details!",
-        "details" : "<strong>[Article Viewer]</strong>\nAs you see, we have just added the article details viewer. Click on a post to view it!\nStar my github repo if you like it[thanks]\n\n<strong>[Tools - Character Generator]</strong>\nYou can generate some cool characters in this tool by filling unicode offsets of '0', 'A' and 'a', in order to generate some cool effects. Some useful presets are offered:\n\n<a href=\"/tools/CHR?preset=000300004100061\">A BROWN FOX JUMPS OVER A LAZY DOG. a brown fox jumps over a lazy dog.123456789</a>\n\n<a href=\"/tools/CHR?preset=1D7CE1D4001D41A\">𝐀 𝐁𝐑𝐎𝐖𝐍 𝐅𝐎𝐗 𝐉𝐔𝐌𝐏𝐒 𝐎𝐕𝐄𝐑 𝐀 𝐋𝐀𝐙𝐘 𝐃𝐎𝐆. 𝐚 𝐛𝐫𝐨𝐰𝐧 𝐟𝐨𝐱 𝐣𝐮𝐦𝐩𝐬 𝐨𝐯𝐞𝐫 𝐚 𝐥𝐚𝐳𝐲 𝐝𝐨𝐠.𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗𝟎</a>\n\n<a href=\"/tools/CHR?preset=1D7CE1D4341D44E\">𝐴 𝐵𝑅𝑂𝑊𝑁 𝐹𝑂𝑋 𝐽𝑈𝑀𝑃𝑆 𝑂𝑉𝐸𝑅 𝐴 𝐿𝐴𝑍𝑌 𝐷𝑂𝐺. 𝑎 𝑏𝑟𝑜𝑤𝑛 𝑓𝑜𝑥 𝑗𝑢𝑚𝑝𝑠 𝑜𝑣𝑒𝑟 𝑎 𝑙𝑎𝑧𝑦 𝑑𝑜𝑔.𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗𝟎</a>\n\n<a href=\"Math Bold Italic: /tools/CHR?preset=1D7EC1D63C1D656\">𝘼 𝘽𝙍𝙊𝙒𝙉 𝙁𝙊𝙓 𝙅𝙐𝙈𝙋𝙎 𝙊𝙑𝙀𝙍 𝘼 𝙇𝘼𝙕𝙔 𝘿𝙊𝙂. 𝙖 𝙗𝙧𝙤𝙬𝙣 𝙛𝙤𝙭 𝙟𝙪𝙢𝙥𝙨 𝙤𝙫𝙚𝙧 𝙖 𝙡𝙖𝙯𝙮 𝙙𝙤𝙜.𝟭𝟮𝟯𝟰𝟱𝟲𝟳𝟴𝟵𝟬</a>\n"
+        "details" : "<strong>[Article Viewer]</strong>\nAs you see, we have just added the article details viewer. Click on a post to view it!\nStar my github repo if you like it[thanks]\n\n<strong>[Tools - Character Generator]</strong>\nYou can generate some cool characters in this tool by filling unicode offsets of '0', 'A' and 'a', in order to generate some cool effects. Some useful presets are offered:\n\n<a href=\"/tools/CHR?preset=000300004100061\">A BROWN FOX JUMPS OVER A LAZY DOG. a brown fox jumps over a lazy dog.123456789</a>\n\n<a href=\"/tools/CHR?preset=1D7CE1D4001D41A\">𝐀 𝐁𝐑𝐎𝐖𝐍 𝐅𝐎𝐗 𝐉𝐔𝐌𝐏𝐒 𝐎𝐕𝐄𝐑 𝐀 𝐋𝐀𝐙𝐘 𝐃𝐎𝐆. 𝐚 𝐛𝐫𝐨𝐰𝐧 𝐟𝐨𝐱 𝐣𝐮𝐦𝐩𝐬 𝐨𝐯𝐞𝐫 𝐚 𝐥𝐚𝐳𝐲 𝐝𝐨𝐠.𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗𝟎</a>\n\n<a href=\"/tools/CHR?preset=1D7CE1D4341D44E\">𝐴 𝐵𝑅𝑂𝑊𝑁 𝐹𝑂𝑋 𝐽𝑈𝑀𝑃𝑆 𝑂𝑉𝐸𝑅 𝐴 𝐿𝐴𝑍𝑌 𝐷𝑂𝐺. 𝑎 𝑏𝑟𝑜𝑤𝑛 𝑓𝑜𝑥 𝑗𝑢𝑚𝑝𝑠 𝑜𝑣𝑒𝑟 𝑎 𝑙𝑎𝑧𝑦 𝑑𝑜𝑔.𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗𝟎</a>\n\n<a href=\"/tools/CHR?preset=1D7EC1D63C1D656\">𝘼 𝘽𝙍𝙊𝙒𝙉 𝙁𝙊𝙓 𝙅𝙐𝙈𝙋𝙎 𝙊𝙑𝙀𝙍 𝘼 𝙇𝘼𝙕𝙔 𝘿𝙊𝙂. 𝙖 𝙗𝙧𝙤𝙬𝙣 𝙛𝙤𝙭 𝙟𝙪𝙢𝙥𝙨 𝙤𝙫𝙚𝙧 𝙖 𝙡𝙖𝙯𝙮 𝙙𝙤𝙜.𝟭𝟮𝟯𝟰𝟱𝟲𝟳𝟴𝟵𝟬</a>\n"
+    },{
+        "id" : 2,
+        "author" : "JerryYuan19",
+        "time" : "2026/8/27 00:00 (UTC+8)",
+        "title" : "New!",
+        "details": "8 Dimensional personality test over <a href=\"/tools/8dim/\">here</a>"
     }
 ]

@@ -1,0 +1,221 @@
+document.querySelectorAll('*').forEach(element=>{
+    element.setAttribute("draggable","false");
+    if(!element.hasAttribute("essential")){
+        element.style.setProperty("animation-duration","0ms","important");
+        element.style.setProperty("animation-delay","0ms","important");
+    }
+});
+const dgts = "0123456789abcdef";
+const colors={
+    "Ti":"#a8d8ff",
+    "Te":"#68a8ff",
+    "Fi":"#caffc8",
+    "Fe":"#62ff48",
+    "Ni":"#ffffac",
+    "Ne":"#f7c740",
+    "Si":"#ffc9c8",
+    "Se":"#ff5b98"
+};
+const cfs = {
+    INTP: ["Ti", "Ne", "Si", "Fe", "Te", "Ni", "Se", "Fi"],
+    ENTP: ["Ne", "Ti", "Fe", "Si", "Fi", "Te", "Ni", "Se"],
+    INTJ: ["Ni", "Te", "Fi", "Se", "Ne", "Ti", "Fe", "Si"],
+    ENTJ: ["Te", "Ni", "Se", "Fi", "Ti", "Ne", "Si", "Fe"],
+    INFP: ["Fi", "Ne", "Si", "Te", "Fe", "Ni", "Se", "Ti"],
+    ENFP: ["Ne", "Fi", "Te", "Si", "Ti", "Fe", "Ni", "Se"],
+    INFJ: ["Ni", "Fe", "Ti", "Se", "Ne", "Fi", "Te", "Si"],
+    ENFJ: ["Fe", "Ni", "Se", "Ti", "Fi", "Ne", "Si", "Te"],
+    ISTP: ["Ti", "Se", "Ni", "Fe", "Te", "Ne", "Si", "Fi"],
+    ESTP: ["Se", "Ti", "Fe", "Ni", "Si", "Te", "Fi", "Ne"],
+    ISFP: ["Fi", "Se", "Ni", "Te", "Fe", "Ne", "Si", "Ti"],
+    ESFP: ["Se", "Fi", "Te", "Ni", "Si", "Fe", "Ti", "Ne"],
+    ISTJ: ["Si", "Te", "Fi", "Ne", "Se", "Ti", "Fe", "Ni"],
+    ESTJ: ["Te", "Si", "Ne", "Fi", "Ti", "Ne", "Si", "Fe"],
+    ISFJ: ["Si", "Fe", "Ti", "Ne", "Se", "Fi", "Te", "Ni"],
+    ESFJ: ["Fe", "Si", "Ne", "Ti", "Fi", "Ne", "Si", "Te"]
+};
+clear();
+try{
+    window.userSelections = JSON.parse(sessionStorage.getItem("8DIMPERSONALITY.RESULT"));
+    window.ver = sessionStorage.getItem("8DIMPERSONALITY.VERSION");
+    window.tme = sessionStorage.getItem("8DIMPERSONALITY.FINISH");
+    render();
+}catch(err){
+    console.log(err);
+    document.querySelector(".article").innerHTML+=`<span style="color: #ff0000">[Error] No recent data found! Please upload your <strong>.8dim</strong> data file.</span>`
+}
+function render(){
+    const normalize = (x)=>{
+        const table = [-1,-0.6,0,0.6,1];
+        return table[x];
+    };
+    let Qcnt = Object.keys(userSelections).length/8;
+    functionsBase = ["T","F","S","N"]
+    functionsAttr = ["i","e"]
+    result = {}
+    let unit = 1/Qcnt;
+    functionsBase.forEach(fb => {
+        functionsAttr.forEach( fa=>{
+            let functionN = fb+fa;
+            let restmp = 0;
+            for(let i = 0;i<10;i++){//positives
+                choice = normalize(userSelections[`${functionN}+${i}`]);
+                restmp += choice*unit;
+            }
+            for(let i = 0;i<2;i++){//negatives
+                choice = -normalize(userSelections[`${functionN}-${i}`]);
+                restmp += choice*unit;
+            }
+            let s2 = 0;
+            for(let i = 0;i<10;i++){//positives
+                choice = normalize(userSelections[`${functionN}+${i}`]);
+                s2+=(choice-restmp )**2;
+            }
+            for(let i = 0;i<2;i++){//negatives
+                choice = -normalize(userSelections[`${functionN}-${i}`]);
+                s2+=(choice-restmp )**2;
+            }
+            s2/=Qcnt;
+            result[functionN] = {
+                avg: restmp,
+                s2 : s2
+            };
+        });
+    });
+    document.querySelector("#ver").innerHTML = ver;
+    document.querySelector("#tme").innerHTML = tme;
+
+    Object.keys(result).forEach(res=>{
+        document.querySelector("#result").innerHTML+=`<div class="func"><span style="display:   inline-block; color:rgb(${Math.floor(result[res].s2*250)},0,0);">${res}: ${round(result[res]. avg)}(-1~1), Variance(s²): ${round(result[res].s2)}</span>
+        <div style="--colFg:${colors[res]};   --colBd:#ff8888;" class="bar" ><div class="cursor" style="--val:${result[res].avg}"></div></   div></div>`;
+    })
+
+    let order = Object.keys(result).sort((a,b)=>{
+        return (result[a].avg<result[b].avg)*2-1;
+    });
+    let odr = "";
+    odr += addColor(order[0].toString(),order[0]);
+    for(let i = 1;i<8;i++){
+        if(round(result[order[i]].avg)===round(result[order[i-1]].avg)){
+            odr += "=";
+        }else{
+            odr += ">";
+        }odr += addColor(order[i].toString(),order[i]);
+    }
+    let tmp = "";
+    tmp+=`<span style="color:${colors[odr]}">${odr}</span>`;
+    window.myFuncOrder = tmp;
+    document.querySelector("#result").innerHTML+=tmp;
+    function round(x, len=2){
+        let str = x.toString();
+        if(!str.includes(".")){
+            str+="."
+        }
+        str += "".padEnd(len,'0');
+        if(str.charAt(0)!=="-"){
+            str = "+"+str;
+        }
+        return str.slice(0,str.indexOf(".")+len+1);
+    }
+}
+function revertDgt(dgt){
+    return dgts.charAt(15-parseInt("0x"+dgt,16));
+}
+function addColor(str, col_){
+    return  `<span style="color:${colors[col_]}; text-shadow: 0px 0px 2px #${revertCol(colors   [col_])};">${str}</span>`;
+}
+function revertCol(color){
+    color = color.slice(1);
+    let ret = ""
+    for(let i = 0;i<6;i++){
+        ret += revertDgt(color[i]);
+    }
+    return ret;
+}
+function save(){
+    const asciiData = btoa(JSON.stringify(({
+        result: JSON.parse(sessionStorage.getItem("8DIMPERSONALITY.RESULT")),
+        finish: sessionStorage.getItem("8DIMPERSONALITY.FINISH"),
+        version: sessionStorage.getItem("8DIMPERSONALITY.VERSION")
+    })));
+    const blob = new Blob([asciiData], {type: "text/x-8dim"});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `testresult__${sessionStorage.getItem("8DIMPERSONALITY.FINISH")}.8dim`;
+    a.click();
+    URL.revokeObjectURL(url);
+}
+function genLine(e){
+    let tmp = "";
+    cfs[e].forEach((fu,id)=>{
+        if(id!=0)tmp+=">";
+        tmp+=addColor(fu,fu);
+    });
+    return tmp;
+}
+function genTable(){
+    let ret = "";
+    q = Object.keys(cfs);
+    q.forEach(e=>{
+        ret+=`<div style="width:max-content;" onclick="diff('${e}');">${e}: ${genLine(e)}</div>`;
+    });
+    return ret;
+}
+function diff(e){
+    document.querySelector("#op").innerHTML = e;
+    document.querySelector("#yfunc").innerHTML = myFuncOrder;
+    document.querySelector("#ofunc").innerHTML = genLine(e);
+}
+function clear(){
+    document.querySelector(".article").innerHTML=`
+    <strong>8-DIMENSIONAL PERSONALITY TEST</strong>
+    <div class="functionalCont"><button class="functionalBtn" onclick="load();">Load data from file</button><button class="functionalBtn" onclick="save();">Save data to file</button></div>
+    <div>Assession Version:&nbsp;<span id="ver"></span></div>
+    <div>Submit Time:&nbsp;<span id="tme"></span></div>
+    <div id="result">
+    </div>
+    <div><p>We do not recommend directly mapping your eight-dimension assessment results onto conventional four-letter personality typologies, as doing so would sacrifice substantial information and may not correspond accurately. Nevertheless, we provide the following reference table to help you understand how your profile relates to—and differs from—the cognitive function frameworks associated with traditional personality types.</p>
+    <div style="display:grid;grid-template-columns:0fr 1fr;gap:5px">
+    <div>
+    ${genTable()}
+    </div>
+    <div id="differ">
+        <div>
+        <div style="text-align:center;font-size:1.2em;font-weight:900;">Comparison</div>
+        (Click on a personality type)
+        <div style="text-align:center;font-size:1em;">You&nbsp;vs.&nbsp;<span id="op">????</span></div>
+        <br>
+        <div style="text-align:center;font-size:1em;" id="yfunc"></div>
+        <br>
+        <div style="text-align:center;font-size:1em;" id="ofunc"></div>
+        </div>
+    </div>
+    </div>
+    <p>This reference table is provided for educational and self-reflective purposes only. Our assessment is an independent instrument and is not affiliated with or endorsed by any official providers of traditional four-letter personality assessments.</p></div>
+    `;
+}
+async function selectFile(){
+    const [fileHandle] = await window.showOpenFilePicker({
+        multiple: false,
+        types:[
+            {
+                description:"8DIM Personality Test Result",
+                accept:{
+                    "text/x-8dim": [".8dim"]
+                }
+            }
+        ]
+    })
+    const file = await fileHandle.getFile();
+    const content = await file.text();
+    return JSON.parse(atob(content));
+}
+function load(){
+    selectFile().then(data=>{
+        window.userSelections = data.result;
+        window.ver = data.version;
+        window.tme = data.finish;
+        clear();render();}
+    ).catch(()=>{});
+}
