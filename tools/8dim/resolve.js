@@ -119,7 +119,7 @@ function save(){
         finish: sessionStorage.getItem("8DIMPERSONALITY.FINISH"),
         version: sessionStorage.getItem("8DIMPERSONALITY.VERSION")
     })));
-    const blob = new Blob([asciiData], {type: "text/x-8dim"});
+    const blob = new Blob([asciiData], {type: "text/plain"});
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
@@ -154,14 +154,16 @@ function genTable(){
     return ret;
 }
 function diff(e){
-    document.querySelector("#op").innerHTML = e;
-    document.querySelector("#yfunc").innerHTML = myFuncOrder;
-    document.querySelector("#ofunc").innerHTML = genLine(e);
+    if(Object.keys(window).includes("myFuncOrder")){
+        document.querySelector("#op").innerHTML = e;
+        document.querySelector("#yfunc").innerHTML = myFuncOrder;
+        document.querySelector("#ofunc").innerHTML = genLine(e);
+    }
 }
 function clear(){
     document.querySelector(".article").innerHTML=`
     <strong>8-DIMENSIONAL PERSONALITY TEST</strong>
-    <div class="functionalCont"><button class="functionalBtn" onclick="load();">Load data from file</button><button class="functionalBtn" onclick="save();">Save data to file</button></div>
+    <div class="functionalCont"><button class="functionalBtn" onclick="selectFile();">Load data from file</button><button class="functionalBtn" onclick="save();">Save data to file</button></div>
     <div>Assession Version:&nbsp;<span id="ver"></span></div>
     <div>Submit Time:&nbsp;<span id="tme"></span></div>
     <div id="result">
@@ -187,26 +189,17 @@ function clear(){
     `;
 }
 async function selectFile(){
-    const [fileHandle] = await window.showOpenFilePicker({
-        multiple: false,
-        types:[
-            {
-                description:"8DIM Personality Test Result",
-                accept:{
-                    "text/x-8dim": [".8dim"]
-                }
-            }
-        ]
-    })
-    const file = await fileHandle.getFile();
-    const content = await file.text();
-    return JSON.parse(atob(content));
+    const fileSelector = document.querySelector("#load");
+    fileSelector.click();
+    fileSelector.addEventListener('change',async (e)=>{
+        let content = (Array.from(e.target.files)[0]);
+        let text = JSON.parse(atob(await content.text()));
+        load(text);
+    });
 }
-function load(){
-    selectFile().then(data=>{
-        window.userSelections = data.result;
-        window.ver = data.version;
-        window.tme = data.finish;
-        clear();render();}
-    ).catch(()=>{});
+function load(data){
+    window.userSelections = data.result;
+    window.ver = data.version;
+    window.tme = data.finish;
+    clear();render();
 }
