@@ -17,23 +17,23 @@ const colors={
     "Se":"#ff5b98"
 };
 const cfs = {
-    INTP: ["Ti", "Ne", "Si", "Fe", "Te", "Ni", "Se", "Fi"],
-    ENTP: ["Ne", "Ti", "Fe", "Si", "Fi", "Te", "Ni", "Se"],
-    INTJ: ["Ni", "Te", "Fi", "Se", "Ne", "Ti", "Fe", "Si"],
-    ENTJ: ["Te", "Ni", "Se", "Fi", "Ti", "Ne", "Si", "Fe"],
-    INFP: ["Fi", "Ne", "Si", "Te", "Fe", "Ni", "Se", "Ti"],
-    ENFP: ["Ne", "Fi", "Te", "Si", "Ti", "Fe", "Ni", "Se"],
-    INFJ: ["Ni", "Fe", "Ti", "Se", "Ne", "Fi", "Te", "Si"],
-    ENFJ: ["Fe", "Ni", "Se", "Ti", "Fi", "Ne", "Si", "Te"],
-    ISTP: ["Ti", "Se", "Ni", "Fe", "Te", "Ne", "Si", "Fi"],
-    ESTP: ["Se", "Ti", "Fe", "Ni", "Si", "Te", "Fi", "Ne"],
-    ISFP: ["Fi", "Se", "Ni", "Te", "Fe", "Ne", "Si", "Ti"],
-    ESFP: ["Se", "Fi", "Te", "Ni", "Si", "Fe", "Ti", "Ne"],
-    ISTJ: ["Si", "Te", "Fi", "Ne", "Se", "Ti", "Fe", "Ni"],
-    ESTJ: ["Te", "Si", "Ne", "Fi", "Ti", "Ne", "Si", "Fe"],
-    ISFJ: ["Si", "Fe", "Ti", "Ne", "Se", "Fi", "Te", "Ni"],
-    ESFJ: ["Fe", "Si", "Ne", "Ti", "Fi", "Ne", "Si", "Te"]
-};
+    "INTP": ["Ti", "Ne", "Si", "Fe"],
+    "ENTP": ["Ne", "Ti", "Fe", "Si"],
+    "INTJ": ["Ni", "Te", "Fi", "Se"],
+    "ENTJ": ["Te", "Ni", "Se", "Fi"],
+    "INFP": ["Fi", "Ne", "Si", "Te"],
+    "ENFP": ["Ne", "Fi", "Te", "Si"],
+    "INFJ": ["Ni", "Fe", "Ti", "Se"],
+    "ENFJ": ["Fe", "Ni", "Se", "Ti"],
+    "ISTP": ["Ti", "Se", "Ni", "Fe"],
+    "ESTP": ["Se", "Ti", "Fe", "Ni"],
+    "ISFP": ["Fi", "Se", "Ni", "Te"],
+    "ESFP": ["Se", "Fi", "Te", "Ni"],
+    "ISTJ": ["Si", "Te", "Fi", "Ne"],
+    "ESTJ": ["Te", "Si", "Ne", "Fi"],
+    "ISFJ": ["Si", "Fe", "Ti", "Ne"],
+    "ESFJ": ["Fe", "Si", "Ne", "Ti"]
+}
 clear();
 try{
     window.userSelections = JSON.parse(sessionStorage.getItem("8DIMPERSONALITY.RESULT"));
@@ -41,7 +41,6 @@ try{
     window.tme = sessionStorage.getItem("8DIMPERSONALITY.FINISH");
     render();
 }catch(err){
-    console.log(err);
     document.querySelector(".article").innerHTML+=`<span style="color: #ff0000">[Error] No recent data found! Please upload your <strong>.8dim</strong> data file.</span>`
 }
 function render(){
@@ -152,9 +151,19 @@ function genLine(e){
         if(id!=0)tmp+=">";
         tmp+=addColor(fu,fu);
     });
+    const rev={
+        "e":"i",
+        "i":"e"
+    };
+    cfs[e].forEach((fu,id)=>{
+        let fu_ = fu[0]+rev[fu.charAt(1)]
+        tmp+=">";
+        tmp+=addColor(fu_,fu_);
+    });
     return tmp;
 }
-function genTable(){
+
+function genTable(){ 
     let ret = "";
     q = Object.keys(cfs);
     q.forEach(e=>{
