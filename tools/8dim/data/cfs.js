@@ -1,0 +1,19 @@
+
+const cfs = {
+    "INTP": ["Ti", "Ne", "Si", "Fe"],
+    "ENTP": ["Ne", "Ti", "Fe", "Si"],
+    "INTJ": ["Ni", "Te", "Fi", "Se"],
+    "ENTJ": ["Te", "Ni", "Se", "Fi"],
+    "INFP": ["Fi", "Ne", "Si", "Te"],
+    "ENFP": ["Ne", "Fi", "Te", "Si"],
+    "INFJ": ["Ni", "Fe", "Ti", "Se"],
+    "ENFJ": ["Fe", "Ni", "Se", "Ti"],
+    "ISTP": ["Ti", "Se", "Ni", "Fe"],
+    "ESTP": ["Se", "Ti", "Fe", "Ni"],
+    "ISFP": ["Fi", "Se", "Ni", "Te"],
+    "ESFP": ["Se", "Fi", "Te", "Ni"],
+    "ISTJ": ["Si", "Te", "Fi", "Ne"],
+    "ESTJ": ["Te", "Si", "Ne", "Fi"],
+    "ISFJ": ["Si", "Fe", "Ti", "Ne"],
+    "ESFJ": ["Fe", "Si", "Ne", "Ti"]
+};
