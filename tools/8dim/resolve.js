@@ -67,8 +67,15 @@ function render(){
     document.querySelector("#tme").innerHTML = tme;
 
     Object.keys(result).forEach(res=>{
-        document.querySelector("#result").innerHTML+=`<div class="func"><span style="display:   inline-block; color:rgb(${Math.floor(result[res].s2*250)},0,0);">${res}: ${round(result[res]. avg)}(-1~1), Variance(s²): ${round(result[res].s2)}</span>
-        <div style="--colFg:${colors[res]};   --colBd:#ff8888;" class="bar" ><div class="cursor" style="--val:${result[res].avg}"></div></   div></div>`;
+        document.querySelector("#result").innerHTML+=`
+            <div class="func">
+                <span style="display:   inline-block; color:rgb(${Math.floor(result[res].s2*250)},0,0);">
+                    ${res}: ${round(result[res]. avg)}(-1~1), Variance(s²): ${round(result[res].s2)}
+                </span>
+                <div style="--colFg:${colors[res]};   --colBd:#ff8888;" class="bar" >
+                    <div class="cursor" style="--val:${result[res].avg}"></div>
+                </div>
+            </div>`;
     })
 
     let order = Object.keys(result).sort((a,b)=>{
@@ -83,10 +90,8 @@ function render(){
             odr += ">";
         }odr += addColor(order[i].toString(),order[i]);
     }
-    let tmp = "";
-    tmp+=`<span style="color:${colors[odr]}">${odr}</span>`;
-    window.myFuncOrder = tmp;
-    document.querySelector("#result").innerHTML+=tmp;
+    window.myFuncOrder = odr;
+    document.querySelector("#cfs").innerHTML+=`<span style="font-size:1em; font-weight:800;">Your Cognitive Function Stack:${odr} </span>`;;
     function round(x, len=2){
         let str = x.toString();
         if(!str.includes(".")){
@@ -149,7 +154,7 @@ function genTable(){
     let ret = "";
     q = Object.keys(cfs);
     q.forEach(e=>{
-        ret+=`<div style="width:max-content;" onclick="diff('${e}');">${e}: ${genLine(e)}</div>`;
+        ret+=`<div style="width:max-content;font-size:1em;line-height:1.5;" onclick="diff('${e}');">${e}: ${genLine(e)}</div>`;
     });
     return ret;
 }
@@ -168,14 +173,16 @@ function clear(){
     <div>Submit Time:&nbsp;<span id="tme"></span></div>
     <div id="result">
     </div>
+    <div id="cfs">
+    </div>
     <div><p>We do not recommend directly mapping your eight-dimension assessment results onto conventional four-letter personality typologies, as doing so would sacrifice substantial information and may not correspond accurately. Nevertheless, we provide the following reference table to help you understand how your profile relates to—and differs from—the cognitive function frameworks associated with traditional personality types.</p>
-    <div style="display:grid;grid-template-columns:0fr 1fr;gap:5px">
+    <div id="tableCont">
     <div>
     ${genTable()}
     </div>
     <div id="differ">
         <div>
-        <div style="text-align:center;font-size:1.2em;font-weight:900;">Comparison</div>
+        <div class="comparison">Comparison</div>
         (Click on a personality type)
         <div style="text-align:center;font-size:1em;">You&nbsp;vs.&nbsp;<span id="op">????</span></div>
         <br>

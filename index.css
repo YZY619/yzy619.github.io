@@ -3,8 +3,6 @@ html{
     min-height: 100dvh;
     width: 100dvw;
     user-select: none;
-    overflow-x:hidden;
-    overflow-y: auto;
     font-family: 'Segoe UI';
 }
 body{
@@ -14,27 +12,18 @@ body{
     width: 100dvw;
     margin: 0;
     background: linear-gradient(#E0F0FF,#B0D0FF);
+    overflow-x:hidden;
+    overflow-y: auto;
 }
 nav{
     position: fixed;
-    top:0;
     left: 0;
     z-index: 5;
-    height: 60px;
     width: 100dvw;
     background-color: #F0F0F055;
     box-shadow: 5px 0 5px 5px #00000022;
-    animation: showNav 1.5s forwards;
     gap:0;
-    display: flex;
     backdrop-filter: blur(1px) saturate(180%) brightness(1.15);
-}
-@keyframes showNav {
-    from{
-        top:-60px;
-    }to{
-        top:0;
-    }
 }
 .item{
     height: 100%;
@@ -86,13 +75,10 @@ a.btn{
     justify-content: center;
 }
 #innerTop{
-    height:240px;
-    width: 900px;
     padding: 0 50px;
     display: flex;
     align-items: center;
     line-height: 1.5;
-    font-size: 80px;
     font-weight: 900;
     -webkit-text-stroke: 2px #1e90ff;
     text-shadow: 20px 20px 8px #00000022;
@@ -128,7 +114,7 @@ img{
     font-family: 'Consolas';
     position: relative;
     z-index: 3;
-    width: calc(95% - 80px);
+    width: calc(100dvw - 100px);
     min-height: 20px;
     padding: 20px 40px;
     height: fit-content;
@@ -169,5 +155,83 @@ p{
     }to{
         padding-top: 30px;
         box-shadow: 0 5px 2.5px #00000022;
+    }
+}
+.noanim{
+    animation-duration: 0ms !important;
+    animation-delay: 0ms !important;
+}
+/* Animations */
+@keyframes showNavPC {
+    from{
+        top:-60px;
+    }to{
+        top:0;
+    }
+}
+@keyframes showNavPhone {
+    from{
+        top:100dvh;
+    }to{
+        top:calc(100dvh - 60px);
+    }
+}
+/* Phone */
+@media screen and (max-width:767px) {
+    nav{
+        display: grid;
+        top: calc(100dvh - 60px);
+        height: 60px;
+        animation: showNavPhone 1.5s forwards;
+        grid-template-columns: repeat(5,20dvw);
+    }
+    .item{
+        height: 100%;
+        width: 100%;
+        display: block;
+        opacity: 0;
+        animation: showNavItems 1s forwards;
+        animation-delay: 2s;
+    }
+    a.btn{
+        height:100%;
+        width: 20dvw;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        text-decoration: none;
+        color:inherit;
+        border-right: 1px #CCC solid;
+        font-size: 0.8rem;
+    }
+    #innerTop{
+        height:75px;
+        width: 900px;
+        font-size: 50px;
+    }
+    #imgFrame{display: none;}
+    #top{padding-top: 20px;}
+    body{
+        min-height: calc(100dvh - 100px);
+        padding-bottom: 100px;
+    }
+    .article{
+        left: 10px;
+    }
+}
+/* PC */
+@media screen and (min-width:768px) {
+    nav{
+        display: flex;
+        top:0;
+        height: 60px;
+        animation: showNavPC 1.5s forwards;
+    }
+    #innerTop{
+        height:240px;
+        width: 900px;
+        font-size: 80px;
     }
 }

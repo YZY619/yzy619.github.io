@@ -66,8 +66,8 @@
 }
 
 .cover{
-    position: absolute;
-    height: 100dvh;
+    position: fixed;
+    height: 300dvh;
     width: 100dvw;
     top:0;
     left: 0;
@@ -87,7 +87,8 @@
     align-content: center;
 }
 .articleDetail{
-    position: absolute;
+    top:5dvh;left: 10dvw;
+    position: fixed;
     width: 70dvw;
     height: 80dvh;
     background-color: #f8f8f8;
@@ -123,4 +124,24 @@ h2{
 }
 .black{
     color: #000;
+}
+@media screen and (max-width:767px) {
+    .articleEntrance{
+        display: block;
+        height: max-content;
+    }
+    .articleTitle{
+        width: fit-content;
+        flex-grow: 1;
+        border-right: none;
+    }
+    .articlePreview{
+        filter: none;
+    }
+}
+@media screen and (min-width:768px) {
+    .articleEntrance{
+        display: block;
+        height: max-content;
+    }
 }

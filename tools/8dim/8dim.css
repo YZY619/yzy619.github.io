@@ -52,7 +52,6 @@
 #result{
     user-select: all;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(50ch, calc(50% - 1px)));
     gap:2px;
 }
 .bar{
@@ -76,7 +75,7 @@
     left: calc(var(--val)*49% + 50%);
 }
 .func{
-    display: flex;
+    display: grid;
     width: calc(100% - 6px);
     border-top: #dddddd solid 2px;
     padding: 3px;
@@ -114,4 +113,33 @@ button:hover{
     display: flex;
     align-items: center;
     justify-content: center;
+    min-height: 200px;
+}
+.comparison{
+    text-align:center;
+    font-size:1.2em;
+    font-weight:900;
+}
+#tableCont{
+    display:grid;
+    gap:5px;
+    justify-items: center;
+}
+#cfs{
+    align-self: center;
+}
+@media screen and (min-width:768px) {
+    #tableCont{
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+    #result{
+        grid-template-columns: repeat(auto-fit, calc(50% - 1px));
+    }
+}
+@media screen and (max-width:767px) {
+    #tableCont{
+        display: grid;
+        grid-template-columns: auto;
+    }
 }
