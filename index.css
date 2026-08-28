@@ -167,7 +167,7 @@ p{
     gap: 20px;
     flex-wrap: wrap;
 }
-toolCard{
+card{
     position: relative;
     display: flex;
     flex-direction: row;
@@ -191,7 +191,7 @@ toolCard{
     justify-content: center;
     display: flex;
 }
-toolCard:hover{
+card:hover{
     transform:translate(3px,3px);
     transition: 0.2s;
     box-shadow: 1px 1px 1px 1px #00000022,

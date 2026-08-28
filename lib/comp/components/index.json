@@ -2,6 +2,6 @@
     "files": [
         "navbar.comp.js",
         "profile.comp.js",
-        "toolcard.comp.js"
+        "card.comp.js"
     ]
 }
