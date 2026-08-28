@@ -4,7 +4,7 @@ document.querySelectorAll('*').forEach(element=>{
         element.style.setProperty("animation-duration","0ms","important");
         element.style.setProperty("animation-delay","0ms","important");
     }
-})
+});
 function getQuestionElem( questions, options){
     let ret = "";
     let questionCounter = 0;
@@ -63,17 +63,12 @@ var userSelections = {}
 function select(question, option){
     let qu = document.querySelectorAll(".question")[question];
     qu.style.filter = "saturate(30%) opacity(0.2)";
-    try{
-        if(!Object.keys(userSelections).includes(mapping[window.questions[question]])){
-            if(question>=2){
-                let quPre = document.querySelectorAll(".question")[question-2];
-                quPre.id = btoa(mapping[window.questions[question-2]]);
-                location.href = `#${quPre.id}`;
-            }else if(question==1){
-                location.href = `#ver`;
-            }
+    if(!Object.keys(userSelections).includes(mapping[window.questions[question]])){
+        if(question+1<document.querySelectorAll(".question").length){
+            let height = Math.ceil(document.querySelectorAll(".question")[question+1].offsetHeight);
+            scrollBy(0, height);
         }
-    }catch(error){}
+    }
     let op = qu.querySelectorAll(".C")[option];
     qu.querySelectorAll(".C").forEach(e=>{
         e.classList.remove("CC");
