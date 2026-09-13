@@ -1,10 +1,33 @@
-fetch("tools.json").then(q=>q.json()).then(e=>{
-    let inner = "";
-    e.forEach(element => {
-        inner+=`
-            <card onclick="location.href = '${element.file}#noanim'" tool="${element.tool}" description="${element.description}" icon="${element.icon}"></card>
-        `;
-    });
-    document.querySelector(".toolsCont").innerHTML = inner;
-    reloadAllComps();
-})
+const tools = [
+    {
+        "tool": "Random Number Generator",
+        "file": "/tools/RNG.html",
+        "description": "Generates a random number.",
+        "icon": "fa-random"
+    },{
+        "tool": "Color Selector",
+        "file": "/tools/COL.html",
+        "description": "Select a hex color you want.",
+        "icon": "fa-hashtag"
+    },{
+        "tool": "Character Generator",
+        "file": "/tools/CHR.html",
+        "description": "Get special characters, like bold, italic or monospace ones.",
+        "icon": "fa-font"
+    },{
+        "tool": "8 Dimensional Personality Test",
+        "file": "/tools/8dim/",
+        "description": "Take a assessment in order to know more about yourself's personality.",
+        "icon": "fa-user"
+    }
+];
+
+let inner = "";
+tools.forEach(element => {
+    inner+=`
+        <card onclick="location.href = '${element.file}#noanim'" tool="${element.tool}" description="${element.description}" icon="${element.icon}"></card>
+    `;
+});
+document.querySelector(".toolsCont").innerHTML = inner;
+
+import('/lib/comp/comp.js');
